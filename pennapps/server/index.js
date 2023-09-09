@@ -3,10 +3,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
+const PromptModel = require('./models/Prompts');
+const PostModel = require('./models/Posts');
 const cors = require('cors');
-
-const promptsRouter = require('./routes/prompts');
-const postsRouter = require('./routes/posts');
 
 app.use(express.json());
 app.use(cors());
@@ -55,8 +54,47 @@ app.get("/users/getUsers", (req, res) => {
 }
 );
 
-app.use('/api/prompts', promptsRouter);
-app.use('/api/posts', postsRouter);
+app.get("/api/prompts", async (req, res) => {
+    try {
+      // Logic to fetch prompts from the database and send the response
+      // Example:
+      const prompts = await PromptModel.find({}).exec();
+      res.status(200).json(prompts);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Failed to fetch prompts", error: error });
+    }
+  });
+  
+  // Route to fetch all posts
+  app.get("/api/posts", async (req, res) => {
+    try {
+      // Logic to fetch posts from the database and send the response
+      // Example:
+      const posts = await PostModel.find({}).exec();
+      res.status(200).json(posts);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: "Failed to fetch posts", error: error });
+    }
+  });
+  app.post("/users/createPost", async (req,res) =>{
+
+    try {
+        const post = req.body;
+        const newPost = new PostModel(post);
+        await newPost.save();
+        res.status(200).json(post);
+
+    }
+    catch(error) {
+        res.status(500).json({message:"Failed to create user", error:error});
+    }
+
+}
+);
+
+  
 
 app.listen(port, () => {
     console.log("SERVER RUNS")

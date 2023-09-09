@@ -10,6 +10,10 @@ export const getUsers = async(email,password)=>{
     return response;
 }
 
+export const createPost = async(post) => {
+    const response =await axios.get(`${API_URL}/users/createPost`, post);
+    return response;
+}
 
 export const getUser = async(email,password)=>{
     const response = await axios.get(`${API_URL}/users/getUser/${email}/${password}`);
@@ -25,7 +29,7 @@ export const getPrompts = async () => {
       throw error; // Rethrow the error to handle it in your component
     }
   };
-  
+
   export const getPosts = async () => {
     try {
       const response = await axios.get(`${API_URL}/api/posts`); // Assuming you have an /api/posts endpoint

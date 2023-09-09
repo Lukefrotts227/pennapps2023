@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createUser,initializeCourseTopics, initializeCourse} from '../api';
+import { createUser} from '../api';
 import { useNavigate } from 'react-router-dom';
 import './Style.css';
 function Signup() {
@@ -24,7 +24,7 @@ function Signup() {
       const response = await createUser(user);
       if (response.status===200)
       {
-        nav('/StudentPage');
+        nav('/Home');
 
       }
       console.log(response);

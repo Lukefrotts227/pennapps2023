@@ -18,5 +18,5 @@ const PromptSchema = mongoose.Schema(
     }
 ); 
 
-const Prompt = mongoose.model("Prompt", PromptSchema); 
-export default Prompt; 
+const PromptModel = mongoose.model("prompts", PromptSchema); 
+module.exports = PromptModel

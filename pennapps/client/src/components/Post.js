@@ -6,7 +6,7 @@ function Post(){
     const [title, setTitle] = useState('')
     const [caption, setCaption] = useState('')
 
-    const handleFileChange = () => {
+    const handleFileChange = (e) => {
         const selectedFile  = e.target.files[0]; 
         setImageFile(selectedFile); 
     }
@@ -16,12 +16,12 @@ function Post(){
         setTitle(e.target.value); 
 
     }
-    const handleCaptionChange = () => {
+    const handleCaptionChange = (e) => {
         setCaption(e.target.value); 
 
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault(); 
 
         if(imageFile){
@@ -44,7 +44,7 @@ function Post(){
                 <input
                     id = "title"
                     name = "title"
-                    content = "text"  
+                    value={title}  
                     onChange = {handleTitleChange}   
                 />
                 <label htmlFor="caption">Caption:</label>
