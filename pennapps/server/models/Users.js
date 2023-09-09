@@ -23,16 +23,7 @@ const UserSchema = new mongoose.Schema({
       required: true,
       minlength: 8,
       maxlength: 20
-    },
-    courses: {
-      type: [courseSchema],
-      default: []
-    },
-    topics: {
-        type: [topicSchema],
-        default: []
-    },
-
+    }
 });
 
 const UserModel = mongoose.model("users", UserSchema);
