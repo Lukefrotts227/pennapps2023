@@ -24,15 +24,6 @@ function Signup() {
       const response = await createUser(user);
       if (response.status===200)
       {
-        const response3 = await initializeCourse(email,password);
-        if(!(response3.status)===200) {
-          console.error(response3);
-        }
-        const response2 = await initializeCourseTopics(email,password);
-        if(!(response2.status)===200) {
-          console.error(response2);
-        }
-
         nav('/StudentPage');
 
       }
