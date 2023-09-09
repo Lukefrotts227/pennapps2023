@@ -24,21 +24,23 @@ export const getUser = async(email,password)=>{
     const response = await axios.get(`${API_URL}/users/getUser/${email}/${password}`);
     return response;
 }
-export const initializeCourse = async (email, password)=>
-{
-    const response = await axios.put(`${API_URL}/users/initializeCourse/${email}/${password}`);
-    return response;
-}
-export const getTopics = async (email, password) => {
-    const response = await axios.get(`${API_URL}/users/getTopics/${email}/${password}`);
-    return response;
-}
-
-export const updateTopic =async(email,password, rateTopic, rateValues) => {
-    const response = await axios.put(`${API_URL}/users/updateTopic/${email}/${password}/${rateTopic}/${rateValues}`);
-    return response;
-}
-export const offerHelp = async (email,password,rateTopic)=> {
-    const response = await axios.put(`${API_URL}/users/offerHelp/${email}/${password}/${rateTopic}`);
-    return response;
-}
+// Function to fetch all prompts
+export const getPrompts = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/api/prompts`); // Assuming you have an /api/prompts endpoint
+      return response;
+    } catch (error) {
+      console.error(error);
+      throw error; // Rethrow the error to handle it in your component
+    }
+  };
+  
+  export const getPosts = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/api/posts`); // Assuming you have an /api/posts endpoint
+      return response;
+    } catch (error) {
+      console.error(error);
+      throw error; // Rethrow the error to handle it in your component
+    }
+  };
