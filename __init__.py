@@ -41,3 +41,6 @@ def login():
 def see_login():
     print("alksjdlkasjd")
     return render_template("login.html")
+
+if __name__ == '__main__':
+    app.run()
