@@ -9,6 +9,9 @@ const PostSchema = new mongoose.Schema({
     }, 
     image : {
 
+    }, 
+    user : {
+
     }
 
 }); 
