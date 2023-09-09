@@ -3,6 +3,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
+const PromptModel = require('./models/Prompts'); 
+const PostModel = require('./models/Post');
 const cors = require('cors');
 
 app.use(express.json());
