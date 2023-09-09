@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Post from './components/Post'; 
-import Prompt from 'components/Prompt'; 
-import OtherPosts from 'components/OtherPosts'; 
-import Home from 'components/Home'; 
+import Prompt from './components/Prompt'; 
+import OtherPosts from './components/OtherPosts'; 
+import Home from './components/Home'; 
 
 //import './PixelArtBackground.css';
 
