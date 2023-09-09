@@ -14,6 +14,8 @@ function Login() {
         sessionStorage.setItem('email', email);
         sessionStorage.setItem('password', password);
 
+        console.log(response.status); 
+
         if (response.status===200)
         {
           nav('/Home');

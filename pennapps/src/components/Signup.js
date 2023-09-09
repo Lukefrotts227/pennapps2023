@@ -18,6 +18,7 @@ function Signup() {
     }
     try {
       const user = { name, email, password };
+      //sessionStorage.setItem('name', name); 
       sessionStorage.setItem('email', email);
       sessionStorage.setItem('password', password);
 
