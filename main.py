@@ -13,22 +13,5 @@ app = Flask(__name__)
 def hello_world():
     return 'Hello, World!'
 
-
-
-app.config['MONGODB_SETTINGS'] = {
-    'db': 'your_database',
-    'host': 'localhost',
-    'port': 27017
-}
-db = MongoEngine()
-db.init_app(app)
-
-
-
-class User(db.Document):
-    name = db.StringField()
-    email = db.StringField()
-
-
 if __name__ == 'main':
     app.run()
