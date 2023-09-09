@@ -10,8 +10,10 @@ function OtherPosts(){
 
     return(
         <div> 
-            
+
 
         </div> 
     );
 }
+
+export default OtherPosts; 
