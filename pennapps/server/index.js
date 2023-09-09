@@ -3,9 +3,10 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
-const PromptModel = require('./models/Prompts'); 
-const PostModel = require('./models/Post');
 const cors = require('cors');
+
+const promptsRouter = require('./routes/prompts');
+const postsRouter = require('./routes/posts');
 
 app.use(express.json());
 app.use(cors());
@@ -54,6 +55,8 @@ app.get("/users/getUsers", (req, res) => {
 }
 );
 
+app.use('/api/prompts', promptsRouter);
+app.use('/api/posts', postsRouter);
 
 app.listen(port, () => {
     console.log("SERVER RUNS")
