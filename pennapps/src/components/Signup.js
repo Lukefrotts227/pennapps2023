@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { createUser,initializeCourseTopics, initializeCourse} from '../src/api';
+import { createUser} from '../api';
 import { useNavigate } from 'react-router-dom';
 import './Style.css';
 function Signup() {
@@ -24,16 +24,8 @@ function Signup() {
       const response = await createUser(user);
       if (response.status===200)
       {
-        const response3 = await initializeCourse(email,password);
-        if(!(response3.status)===200) {
-          console.error(response3);
-        }
-        const response2 = await initializeCourseTopics(email,password);
-        if(!(response2.status)===200) {
-          console.error(response2);
-        }
-
-        nav('/StudentPage');
+       
+        nav('/Home');
 
       }
       console.log(response);

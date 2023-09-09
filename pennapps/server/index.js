@@ -3,16 +3,32 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
+const PromptModel = require('./models/Prompts'); 
 const cors = require('cors');
 
 app.use(express.json());
 app.use(cors());
 const port = process.env.PORT 
-const mongodb_url = process.env.MONGODB_URL;
+const mongodb_url = process.env.MONGO;
 
 mongoose.connect(
     mongodb_url
 );
+
+
+
+const connectWithRetry = () => {
+    mongoose.connect(mongodb_url, { useNewUrlParser: true, useUnifiedTopology: true })
+      .then(() => {
+        console.log('Connected to MongoDB');
+      })
+      .catch((err) => {
+        console.error('Failed to connect to MongoDB:', err);
+        setTimeout(connectWithRetry, 5000); // Retry after 5 seconds
+      });
+  };
+  
+  connectWithRetry();
 
 app.post("/users/createUser", async (req,res) =>{
 
@@ -50,3 +66,8 @@ app.get("/users/getUsers", (req, res) => {
     });
 }
 );
+
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
