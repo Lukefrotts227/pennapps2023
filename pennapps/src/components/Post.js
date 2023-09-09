@@ -16,7 +16,7 @@ function Post(){
         setTitle(e.target.value); 
     }
 
-    handleCaptionChange = (e) => {
+    const handleCaptionChange = (e) => {
         setCaption(e.target.value); 
     }
 
@@ -41,7 +41,7 @@ function Post(){
             id = "title"
             name = "title"
             value ={title}
-            onChange = {handeTitleChange}
+            onChange = {handleTitleChange}
             required
         />
         <label htmlFor="content">Content:</label>
@@ -54,7 +54,7 @@ function Post(){
             required
 
         />
-        
+
         <label htmlFor="image">Image:</label>
         <input
             type="file"
