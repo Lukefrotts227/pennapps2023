@@ -1,3 +1,10 @@
-from taipy import Gui
+from flask import Flask
 
-Gui(page="# Getting started with *Taipy*").run() # use_reloader=True
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+if __name__ == 'main':
+    app.run()
