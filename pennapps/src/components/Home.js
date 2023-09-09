@@ -9,7 +9,8 @@ function Home(){
 
 
     return(<div>
-        <h1> This is the Home Screen </h1>
+        <h1> Welcome to Sustainablity Encouragement </h1>
+        
     </div>);
 }
 
