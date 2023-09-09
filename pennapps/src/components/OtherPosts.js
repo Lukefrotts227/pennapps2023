@@ -5,20 +5,13 @@ import { useNavigate } from 'react-router-dom';
 import './Style.css';
 
 
-
-
-function Home(){
-    const getName = () => {
-
-    }
-
+function OtherPosts(){
 
 
     return(
-    <div>
-        <h1> Welcome to Sustainablity Encouragement </h1>
+        <div> 
+            
 
-    </div>);
+        </div> 
+    );
 }
-
-export default Home; 

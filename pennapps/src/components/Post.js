@@ -54,7 +54,7 @@ function Post(){
             required
 
         />
-
+        
         <label htmlFor="image">Image:</label>
         <input
             type="file"
