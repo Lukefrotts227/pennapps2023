@@ -44,13 +44,15 @@ function Post(){
                 <input
                     id = "title"
                     name = "title"
-                    content = "text"     
+                    content = "text"  
+                    onChange = {handleTitleChange}   
                 />
                 <label htmlFor="caption">Caption:</label>
                 <textarea 
                     id = "caption"
                     name = "caption"
-                    content = "text"
+                    value={caption}                    
+                    onChange = {handleCaptionChange}
                 />
 
                 <label htmlFor="imageFile">Upload Image:</label>   
