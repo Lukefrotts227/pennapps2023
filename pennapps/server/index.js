@@ -6,6 +6,7 @@ const UserModel = require('./models/Users');
 const PromptModel = require('./models/Prompts');
 const PostModel = require('./models/Posts');
 const cors = require('cors');
+const Grid = require('gridfs-stream'); 
 
 app.use(express.json());
 app.use(cors());
@@ -15,6 +16,8 @@ const mongodb_url = process.env.MONGO;
 mongoose.connect(
     mongodb_url
 );
+
+const gfs = Grid(mongoose.connection.db, mongoose.mongo);
 
 
 app.post("/users/createUser", async (req,res) =>{
