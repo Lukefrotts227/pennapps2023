@@ -6,18 +6,29 @@ const UserModel = require('./models/Users');
 const PromptModel = require('./models/Prompts');
 const PostModel = require('./models/Posts');
 const cors = require('cors');
-const Grid = require('gridfs-stream'); 
 
 app.use(express.json());
 app.use(cors());
 const port = process.env.PORT 
 const mongodb_url = process.env.MONGO;
 
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/'); // Images will be stored in the 'uploads' directory
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname); // Generate a unique filename
+  },
+});
+
+const upload = multer({ storage: storage });
+
 mongoose.connect(
     mongodb_url
 );
 
-const gfs = Grid(mongoose.connection.db, mongoose.mongo);
+
 
 
 app.post("/users/createUser", async (req,res) =>{
@@ -81,21 +92,23 @@ app.get("/api/prompts", async (req, res) => {
       res.status(500).json({ message: "Failed to fetch posts", error: error });
     }
   });
-  app.post("/users/createPost", async (req,res) =>{
-
+  app.post('/users/createPost', upload.single('image'), async (req, res) => {
     try {
-        const post = req.body;
-        const newPost = new PostModel(post);
-        await newPost.save();
-        res.status(200).json(post);
-
+      const post = req.body;
+      const newPost = new PostModel(post);
+  
+      // If an image was uploaded, store its filename in the post
+      if (req.file) {
+        newPost.image = req.file.filename;
+      }
+  
+      await newPost.save();
+      res.status(200).json(post);
+    } catch (error) {
+      res.status(500).json({ message: 'Failed to create post', error: error });
     }
-    catch(error) {
-        res.status(500).json({message:"Failed to create user", error:error});
-    }
-
-}
-);
+  });
+  
 
   
 
