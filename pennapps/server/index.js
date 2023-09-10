@@ -100,6 +100,7 @@ app.get("/api/prompts", async (req, res) => {
   
       // If an image was uploaded, store its filename in the post
       if (req.file) {
+        console.log("uploaded"); 
         newPost.image = req.file.filename;
       }
   
