@@ -10,11 +10,16 @@ export const getUsers = async(email,password)=>{
     return response;
 }
 
-export const createPost = async(post) => {
-    const response =await axios.get(`${API_URL}/users/createPost`, post);
-    return response;
-}
-
+export const createPost = async (post) => {
+    try {
+      const response = await axios.post(`${API_URL}/users/createPost`, post);
+      return response;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  };
+  
 export const getUser = async(email,password)=>{
     const response = await axios.get(`${API_URL}/users/getUser/${email}/${password}`);
     return response;

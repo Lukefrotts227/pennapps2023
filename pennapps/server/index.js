@@ -14,13 +14,14 @@ const mongodb_url = process.env.MONGO;
 
 const multer = require('multer');
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/'); // Images will be stored in the 'uploads' directory
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + '-' + file.originalname); // Generate a unique filename
-  },
-});
+    destination: (req, file, cb) => {
+      cb(null, 'uploads/'); // Relative path to the 'uploads' directory
+    },
+    filename: (req, file, cb) => {
+      cb(null, Date.now() + '-' + file.originalname); // Generate a unique filename
+    },
+  });
+  
 
 const upload = multer({ storage: storage });
 
