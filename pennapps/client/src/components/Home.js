@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getPrompts, getPosts } from '../api'; // Assuming you have API functions to fetch prompts and posts.
-
+import Minibar from './Minibar';
 function Home() {
   const [prompts, setPrompts] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -32,6 +32,7 @@ function Home() {
     <div>
       {/* Display Prompts */}
       <div>
+      <Minibar />
         <h2>Prompts</h2>
         <ul>
           {prompts.map((prompt) => (
@@ -45,6 +46,7 @@ function Home() {
 
       {/* Display Posts */}
       <div>
+        
         <h2>Posts</h2>
         <ul>
           {posts.map((post) => (

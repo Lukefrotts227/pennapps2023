@@ -8,7 +8,7 @@ const Minibar = () => {
         <nav>
           <ul>
             <li><Link to="/Home">Home</Link></li>
-            <li><Link to="/Post">About</Link></li>
+            <li><Link to="/Post">Post</Link></li>
           </ul>
         </nav>
       );
