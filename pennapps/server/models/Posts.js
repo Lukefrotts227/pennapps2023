@@ -1,10 +1,6 @@
 const mongoose = require('mongoose'); 
 
 const PostSchema = mongoose.Schema({
-    user : {
-        type : String, 
-        required : true
-    },
 
     name : {
         type : String,
@@ -12,13 +8,13 @@ const PostSchema = mongoose.Schema({
     },
 
     description: String,
-    picturePath: String,
-    userPicturePath: String,
+    image: String,
+    // userPicturePath: String,
 
-    likes: {
-        type: Map,
-        of: Boolean,
-      },
+    // likes: {
+    //     type: Map,
+    //     of: Boolean,
+    //   },
 }); 
 
 const PostModel = mongoose.model("posts", PostSchema); 

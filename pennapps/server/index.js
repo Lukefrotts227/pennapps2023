@@ -10,7 +10,7 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 const port = process.env.PORT 
-const mongodb_url = process.env.MONGO_URL;
+const mongodb_url = process.env.MONGO;
 
 mongoose.connect(
     mongodb_url

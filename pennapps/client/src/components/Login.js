@@ -16,7 +16,7 @@ function Login() {
 
         if (response.status===200)
         {
-          nav('/StudentPage');
+          nav('/Home');
         }
         //console.log(response); // do something with the user data, like redirect to a new page
       } catch (error) {
