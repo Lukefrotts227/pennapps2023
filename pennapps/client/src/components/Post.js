@@ -1,4 +1,5 @@
 import React, {useState} from 'react'; 
+import Minibar from './Minibar';
 
 
 function Post(){    
@@ -36,6 +37,7 @@ function Post(){
 
     return(
         <div> 
+            <Minbar/>
             <form onSubmit = {handleSubmit}>   
            
            
